@@ -5,18 +5,18 @@ This API handles all the backend details for the AyaloOnline Zuri Team 101 proje
 ## About AyaloOnline
 Some of the technologies we use to build our software:
 
-*Python
-*Django
-*JavaScript
-*React
+* Python
+* Django
+* JavaScript
+* React
 
 ## Description
-**AyaloOnline Backend API** is the foundation for our other AyaloOnline applications. The application is a REST API written in Python
+** AyaloOnline Backend API ** is the foundation for our other AyaloOnline applications. The application is a REST API written in Python
 
 Some of the features included in this app:
 
-*REST API
-*Authentication via JWT or basic-auth
+* REST API
+* Authentication via JWT or basic-auth
 
 
 ## Dev Contribution Guide
@@ -38,15 +38,16 @@ Some of the features included in this app:
 
 9. Do not merge your pull request yourself. Wait for review and merging.
 
-##Installation
+## Installation
 The first thing to do is to clone the repository:
 
 $ git clone https://github.com/zuri-training/AyaloOnline-be-pjt-101.git
 $ cd AyaloOnline-be-pjt-101
 Create a virtual environment to install dependencies in and activate it:
 
-$ virtualenv2 --no-site-packages env
-$ source env/bin/activate
+$ py -m venv env
+$ env\scripts\activate
+
 Then install the dependencies:
 
 (env)$ pip install -r requirements.txt
@@ -58,5 +59,5 @@ Once pip has finished downloading the dependencies:
 (env)$ python manage.py runserver
 
 
-##User Guide
+## User Guide
 In progress.

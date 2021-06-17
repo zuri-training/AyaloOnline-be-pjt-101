@@ -11,12 +11,12 @@ Some of the technologies we use to build our software:
 - React
 
 ## Description
-** AyaloOnline Backend API ** is the foundation for our other AyaloOnline applications. The application is a REST API written in Python
+AyaloOnline Backend API is the foundation for our other AyaloOnline applications. The application is a REST API written in Python
 
 Some of the features included in this app:
 
-* REST API
-* Authentication via JWT or basic-auth
+- REST API
+- Authentication via JWT or basic-auth
 
 
 ## Dev Contribution Guide

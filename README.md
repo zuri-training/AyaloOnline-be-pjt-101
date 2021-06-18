@@ -42,24 +42,7 @@ Some of the features included in this app:
 9. Do not merge your pull request yourself. Wait for review and merging.
 
 ## Installation
-The first thing to do is to clone the repository:
 
-$ git clone https://github.com/zuri-training/AyaloOnline-be-pjt-101.git
-$ cd AyaloOnline-be-pjt-101
-Create a virtual environment to install dependencies in and activate it:
-
-$ py -m venv env
-$ env\scripts\activate
-
-Then install the dependencies:
-
-(env)$ pip install -r requirements.txt
-Note the (env) in front of the prompt. This indicates that this terminal session operates in a virtual environment set up by virtualenv2.
-
-Once pip has finished downloading the dependencies:
-
-(env)$ cd project
-(env)$ python manage.py runserver
 
 
 ## User Guide

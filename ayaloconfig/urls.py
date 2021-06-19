@@ -19,6 +19,6 @@ from ayaloapp.views import Signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/accounts/signup/', Signup.as_view()),
-    path('api/accounts/', include('authemail.urls'))
+    path('signup/', Signup.as_view()),
+    path('', include('authemail.urls'))
 ]

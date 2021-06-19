@@ -23,7 +23,7 @@ class MyUser(EmailAbstractUser):
         },
     )
 		USERNAME_FIELD = 'email'
-		REQUIRED_FIELDS = ['password', 'username', 'AccountType']
+		REQUIRED_FIELDS = ['password', 'username']
 
 		objects=EmailUserManager()
 

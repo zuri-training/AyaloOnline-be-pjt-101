@@ -54,10 +54,9 @@ class Signup(APIView):
                 signup_code = SignupCode.objects.create_signup_code(user, ipaddr)
                 signup_code.send_signup_email()
 
-            content = {'email': email, 'first_name': first_name,
-                       'last_name': last_name}
+            content = {'email': email, 'username': username,
+                       ' AccountType':  AccountType}
             return Response(content, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 

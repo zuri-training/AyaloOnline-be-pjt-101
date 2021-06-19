@@ -140,6 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'ayaloapp.MyUser'
 
 EMAIL_FROM = config('EMAIL_ADDRESS')
+EMAIL_BCC=config('EMAIL_ADDRESS')
 
 EMAIL_HOST = config('EMAIL_HOST') 
 EMAIL_PORT= config('PORT') 

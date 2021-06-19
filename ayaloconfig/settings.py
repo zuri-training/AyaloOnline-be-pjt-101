@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
+from decouple import config, Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -137,3 +138,12 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'ayaloapp.MyUser'
+
+EMAIL_FROM = Congig('EMAIL_ADDRESS')
+
+EMAIL_HOST = Config('EMAIL_HOST') or 'smtp.gmail.com'
+EMAIL_PORT= Config('PORT') or 587
+EMAIL_HOST_USER = Config('HOST_USER')
+EMAIL_HOST_PASSWORD = Config('PASSWORD')
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

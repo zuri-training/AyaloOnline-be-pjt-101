@@ -1,14 +1,17 @@
-# AyaloOnline-be-pjt-101 Backend API
+# ÀyáloOnline-be-pjt-101 Backend API
 
 This API handles all the backend details for the AyaloOnline Zuri Team 101 project.
 
-## About AyaloOnline
-Some of the technologies we use to build our software:
+## About ÀyáloOnline
+Àyálo Online is a platform which provides borrowed project equipment. You don't need to own any equipment to execute a project, whether it's a big road construction concern or as small as a Media project.
+All you need is the "Àyálo Online" platform, from concept to market the platform will give you the space to execute as though you had a full efficient space, studio, workshop etc.
+The platform does not own any equipment but will congregate individuals and companies that own the equipment and help you start and finish the project in time and budget.
 
+
+## Built with
 - Python
 - Django
-- JavaScript
-- React
+
 
 ## Description
 AyaloOnline Backend API is the foundation for our other AyaloOnline applications. The application is a REST API written in Python
@@ -39,24 +42,7 @@ Some of the features included in this app:
 9. Do not merge your pull request yourself. Wait for review and merging.
 
 ## Installation
-The first thing to do is to clone the repository:
 
-$ git clone https://github.com/zuri-training/AyaloOnline-be-pjt-101.git
-$ cd AyaloOnline-be-pjt-101
-Create a virtual environment to install dependencies in and activate it:
-
-$ py -m venv env
-$ env\scripts\activate
-
-Then install the dependencies:
-
-(env)$ pip install -r requirements.txt
-Note the (env) in front of the prompt. This indicates that this terminal session operates in a virtual environment set up by virtualenv2.
-
-Once pip has finished downloading the dependencies:
-
-(env)$ cd project
-(env)$ python manage.py runserver
 
 
 ## User Guide

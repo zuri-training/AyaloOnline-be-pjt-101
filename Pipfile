@@ -4,9 +4,21 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-djangorestframework = "*"
-python-decouple = "*"
+django = "==3.2.4"
+djangorestframework = "==3.12.4"
+python-decouple = "==3.4"
+asgiref = "==3.3.4"
+certifi = "==2021.5.30"
+chardet = "==4.0.0"
+django-email-utils = "==1.0.0"
+django-rest-authemail = "==2.0.6"
+django-rest-email-auth = "==3.0.3"
+idna = "==2.10"
+pytz = "==2021.1"
+requests = "==2.25.1"
+sqlparse = "==0.4.1"
+"urllib3" = "==1.26.5"
+"django-rest-framework-social-oauth2" = "*"
 
 [dev-packages]
 

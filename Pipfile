@@ -19,6 +19,7 @@ requests = "==2.25.1"
 sqlparse = "==0.4.1"
 "urllib3" = "==1.26.5"
 "django-rest-framework-social-oauth2" = "*"
+gunicorn = "*"
 
 [dev-packages]
 

@@ -27,7 +27,6 @@ from drf_yasg import openapi
 
 from rest_framework.routers import DefaultRouter
 from phone_verify.api import VerificationViewSet
-from ayaloapp.urls import url_phonenumber_patterns
 
 
 
@@ -53,6 +52,5 @@ urlpatterns = [
    re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('email-auth/signup/', Signup.as_view()),
-    path('email-auth/', include('authemail.urls')),
-    path('email-auth/', include(url_phonenumber_patterns))
+    path('email-auth/', include('authemail.urls'))
 ]

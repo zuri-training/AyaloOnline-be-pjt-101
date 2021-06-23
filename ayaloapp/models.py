@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 
 
 class MyUser(EmailAbstractUser):
-		choicess=[(1, 'Leeser'), (2, 'leasee')]
+		choicess=[(1, 'Leeser'), (2, 'leesee')]
 		AccountType=models.CharField(max_length=2, choices=choicess)
 		email = models.EmailField(
 		    verbose_name='email address',

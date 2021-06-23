@@ -42,10 +42,27 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     "authemail",
     "ayaloapp",
-    'drf_yasg'
+    'drf_yasg',
+    
+    'phone_verify'
 
 
 ]
+
+PHONE_VERIFICATION = {
+    "BACKEND": "phone_verify.backends.twilio.TwilioBackend",
+    "OPTIONS": {
+        "SID": "fake",
+        "SECRET": "fake",
+        "FROM": "+14755292729",
+        "SANDBOX_TOKEN": "123456",
+    },
+    "TOKEN_LENGTH": 6,
+    "MESSAGE": "Welcome to {app}! Please use security code {security_code} to proceed.",
+    "APP_NAME": "Phone Verify",
+    "SECURITY_CODE_EXPIRATION_TIME": 3600,  # In seconds only
+    "VERIFY_SECURITY_CODE_ONLY_ONCE": False,  # If False, then a security code can be used multiple times for verification
+}
 REST_FRAMEWORK = {
 	'DEFAULT_AUTHENTICATION_CLASSES': (
 		'rest_framework.authentication.TokenAuthentication',
@@ -133,6 +150,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -149,3 +168,5 @@ EMAIL_HOST_USER = config('HOST_USER')
 EMAIL_HOST_PASSWORD = config('PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'

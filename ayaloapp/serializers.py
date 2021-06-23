@@ -4,7 +4,7 @@ from django.contrib.auth.validators	import UnicodeUsernameValidator
 from .customvalidators import EmailSerializerUniquenessValidator, UsernameSerializerUniquenessValidator	
 
 class UserSerializer(serializers.Serializer):
-		choicess=[(1, 'Leeser'), (2, 'leasee')]
+		choicess=[(1, 'Leeser'), (2, 'leesee')]
 		username=serializers.CharField(validators=[UnicodeUsernameValidator(), UsernameSerializerUniquenessValidator()])
 		email=serializers.EmailField(validators=[EmailSerializerUniquenessValidator()])
 		password=serializers.CharField()

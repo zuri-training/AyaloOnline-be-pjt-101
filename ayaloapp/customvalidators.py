@@ -7,28 +7,24 @@ from rest_framework import serializers
 class EmailSerializerUniquenessValidator(object):
 
   def __call__(self, value):
-	  try:
-	  	user = get_user_model().objects.get(email=email)
-  		if user.is_verified:
-      				raise serializers.ValidationError('Email address already exists!')
-	  except:
-	  	pass
-
-
-	  return value
+			try:
+				user = get_user_model().objects.get(email=value)
+				if user.is_verified:
+					raise serializers.ValidationError('Email address already exists!')
+			except:
+				pass
+			return value
 
 
 class UsernameSerializerUniquenessValidator(object):
 	def __call__(self, value):
-		try:
-			user = get_user_model().objects.get(username=username)
-			if user.is_verified:
-				raise serializers.ValidationError('Username already taken')
-
-		except:
-			pass 
-		return value
+			try:
+				user = get_user_model().objects.get(cool_name=value)
+				if user.is_verified:
+					raise serializers.ValidationError('Username already taken')
+			except:
+				pass
+			return value
 
 # class UsernameFormatValidator(object, RegexValidator):
-
 

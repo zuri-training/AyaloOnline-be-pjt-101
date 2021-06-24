@@ -13,15 +13,15 @@ class MyUser(EmailAbstractUser):
 		    verbose_name='email address',
 		    max_length=255,
 		    unique=True,
+		     error_messages={
+            'unique': ("A user with that username already exists."),
+        },
 		)
 		cool_name = models.CharField(
 		verbose_name='Username',
         max_length=150,
-        unique=True,
         validators=[UnicodeUsernameValidator],
-        error_messages={
-            'unique': ("A user with that username already exists."),
-        },
+   
     )
 
 		# First_name=models.CharField(verbose_name='First Name')
@@ -29,8 +29,8 @@ class MyUser(EmailAbstractUser):
 		# gender_choices=[('F', 'Female'), ('M', 'Male')]
 		# Gender=models.CharField(max_length=2, choices=gender_choices)
 		# Phone_number=models.CharField()
-		# USERNAME_FIELD = 'email'
-		# REQUIRED_FIELDS = ['password', 'username']
+		USERNAME_FIELD = 'email'
+		
 
 		objects=EmailUserManager()
 

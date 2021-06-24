@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .serializers import  UserSerializer
+from .models import Category, Product
+from .serializers import UserSerializer, CategorySerializer, ProductSerializer
 
 from datetime import date
 
@@ -7,7 +8,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model
 from django.utils.translation import gettext as _
 
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -36,10 +37,9 @@ class Signup(APIView):
 
             user = get_user_model().objects.create_user(email=email)
 
-
             user.set_password(password)
-            user.username =username
-            user.AccountType =AccountType
+            user.username = username
+            user.AccountType = AccountType
             if not must_validate_email:
                 user.is_verified = True
                 send_multi_format_email('welcome_email',
@@ -47,7 +47,6 @@ class Signup(APIView):
                                         target_email=user.email)
             user.save()
 
-            
             if must_validate_email:
                 # Create and associate signup code
                 ipaddr = self.request.META.get('REMOTE_ADDR', '0.0.0.0')
@@ -55,8 +54,27 @@ class Signup(APIView):
                 signup_code.send_signup_email()
 
             content = {'email': email, 'username': username,
-                       ' AccountType':  AccountType}
+                       ' AccountType': AccountType}
             return Response(content, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class ListCategory(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class DetailCategory(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class ListProduct(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class DetailProduct(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer

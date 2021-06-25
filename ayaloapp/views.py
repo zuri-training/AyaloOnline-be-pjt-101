@@ -14,7 +14,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 # from .models import SignupCode
-from authemail.models import send_multi_format_email, SignupCode
+from authemail.models import SignupCode
+from .models import send_multi_format_email
 
 
 # Create your views here.

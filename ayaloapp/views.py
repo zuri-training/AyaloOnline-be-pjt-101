@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .serializers import  UserSerializer
-
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 from datetime import date
 
 from django.conf import settings
@@ -15,7 +16,7 @@ from rest_framework.views import APIView
 
 # from .models import SignupCode
 from authemail.models import SignupCode
-from .models import send_multi_format_email
+from.models import send_multi_format_email
 
 
 # Create your views here.
@@ -47,7 +48,9 @@ class Signup(APIView):
 					signup_code.delete()
 				except SignupCode.DoesNotExist:
 					pass
-
+				# except SignupCode.MultipleObjectsReturned:
+				# 	for obj in signup_code:
+				# 		obj.delete()
 			except get_user_model().DoesNotExist:
 				user = get_user_model().objects.create_user(email=email)
 
@@ -77,8 +80,17 @@ class Signup(APIView):
 			if must_validate_email:
 				# Create and associate signup code
 				# ipaddr = self.request.META.get('REMOTE_ADDR', '0.0.0.0')
-				signup_code = SignupCode.objects.create_signup_code(user, '127.0.0.1')
-				signup_code.send_signup_email()
+					signup_code = SignupCode.objects.create_signup_code(user, '127.0.0.1')
+					template_prefix='signup_email'
+					subject_file = 'authemail/%s_subject.txt' % template_prefix
+					txt_file = 'authemail/%s.txt' % template_prefix
+					subject = render_to_string(subject_file).strip()
+					from_email = settings.EMAIL_FROM
+					to = email
+					context={'code':signup_code.code}
+					text_content = render_to_string(txt_file, context)
+
+					send_mail(subject, text_content, from_email, [to])
 				# print("HEY!!!!!! LOOOK HERE!!!! {}".format(ipaddr))
 
 			content = {'email': email, 'cool_name': cool_name,

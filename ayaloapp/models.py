@@ -1,10 +1,21 @@
+import binascii
+import os
 from django.db import models
 from authemail.models import EmailUserManager
 from authemail.models import EmailAbstractUser
 from django.contrib.auth.validators	import UnicodeUsernameValidator	
 # Create your models here.
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser
+# from authemail.models import SignupCodeManager, AbstractBaseCode, SignupCode 
 
+
+
+
+
+def _generate_code():
+    return binascii.hexlify(os.urandom(20)).decode('utf-8')
 
 class MyUser(EmailAbstractUser):
 		choicess=[('Leeser', 'Leeser'), ('Leesee', 'Leessee')]
@@ -12,15 +23,13 @@ class MyUser(EmailAbstractUser):
 		email = models.EmailField(
 		    verbose_name='email address',
 		    max_length=255,
-		    unique=True,
-		     error_messages={
-            'unique': ("A user with that username already exists."),
-        },
+		    unique=True
+	
 		)
 		cool_name = models.CharField(
 		verbose_name='Username',
         max_length=150,
-        validators=[UnicodeUsernameValidator],
+        validators=[UnicodeUsernameValidator]
    
     )
 
@@ -42,3 +51,20 @@ class MyUser(EmailAbstractUser):
 
 			return is_vendor
 
+
+# class CustomSignupCodeManager(SignupCodeManager):
+# 	def create_signup_code(self, user):
+# 		code = _generate_code()
+# 		signup_code = self.create(user=user, code=code)
+
+# 		return signup_code
+
+
+
+
+# class CustomSignupCode(SignupCode):
+# 		SignupCode.ipaddr= models.GenericIPAddressField(null=True)
+
+# 		objects = CustomSignupCodeManager()
+
+ 

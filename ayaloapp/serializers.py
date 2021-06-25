@@ -1,13 +1,11 @@
 from rest_framework import serializers
 from .models import  MyUser
-from django.contrib.auth.validators	import UnicodeUsernameValidator
-from .customvalidators import EmailSerializerUniquenessValidator, UsernameSerializerUniquenessValidator	
 from phone_verify.serializers import PhoneSerializer
 
 class UserSerializer(serializers.Serializer):
 		choicess=[('Leeser', 'Leeser'), ('Leesee', 'Leessee')]
-		username=serializers.CharField(validators=[UnicodeUsernameValidator(), UsernameSerializerUniquenessValidator()])
-		email=serializers.EmailField(validators=[EmailSerializerUniquenessValidator()])
+		username=serializers.CharField()
+		email=serializers.EmailField()
 		password=serializers.CharField()
 		AccountType=serializers.ChoiceField(choices=choicess, allow_blank=False)
 			

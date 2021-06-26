@@ -7,6 +7,7 @@ from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 
 
 class MyUser(EmailAbstractUser):
+<<<<<<< HEAD
     choicess = [(1, 'Leeser'), (2, 'leasee')]
     AccountType = models.CharField(max_length=2, choices=choicess)
     email = models.EmailField(
@@ -15,6 +16,17 @@ class MyUser(EmailAbstractUser):
         unique=True,
     )
     username = models.CharField(
+=======
+		choicess=[('Leeser', 'Leeser'), ('Leesee', 'Leessee')]
+		AccountType=models.CharField(max_length=256, choices=choicess)
+		email = models.EmailField(
+		    verbose_name='email address',
+		    max_length=255,
+		    unique=True,
+		)
+		cool_name = models.CharField(
+		verbose_name='Username',
+>>>>>>> 5fae535ab9faf9a9b98ef1f242e69896ef63b07c
         max_length=150,
         unique=True,
         validators=[UnicodeUsernameValidator],
@@ -22,6 +34,7 @@ class MyUser(EmailAbstractUser):
             'unique': ("A user with that username already exists."),
         },
     )
+<<<<<<< HEAD
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['password', 'username']
 
@@ -50,9 +63,30 @@ class Product(models.Model):
     description = models.TextField()
     status = models.BooleanField(default=True)
     date_created = models.DateField(auto_now_add=True)
+=======
+
+		# First_name=models.CharField(verbose_name='First Name')
+		# Last_name=models.CharField(verbose_name='Last Name')
+		# gender_choices=[('F', 'Female'), ('M', 'Male')]
+		# Gender=models.CharField(max_length=2, choices=gender_choices)
+		# Phone_number=models.CharField()
+		# USERNAME_FIELD = 'email'
+		# REQUIRED_FIELDS = ['password', 'username']
+>>>>>>> 5fae535ab9faf9a9b98ef1f242e69896ef63b07c
 
     class Meta:
         ordering = ['-date_created']
 
+<<<<<<< HEAD
     def __str__(self):
         return '{} {}'.format(self.product_tag, self.name)
+=======
+		def UserGrouper(self):
+			if self.AccountType=='Leeser':
+				is_vendor=True
+			elif self.AccountType=='Leesee':
+				is_vendor=False
+
+			return is_vendor
+
+>>>>>>> 5fae535ab9faf9a9b98ef1f242e69896ef63b07c

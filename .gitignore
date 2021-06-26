@@ -1,8 +1,9 @@
 __pychache__
 .env
-
+venv
 # VSCode
 .vscode
+console.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

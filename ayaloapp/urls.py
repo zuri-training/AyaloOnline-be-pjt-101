@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.urls import path
 from .views import ListCategory, DetailCategory, ListProduct, DetailProduct
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -36,3 +37,5 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+=======
+>>>>>>> 5fae535ab9faf9a9b98ef1f242e69896ef63b07c

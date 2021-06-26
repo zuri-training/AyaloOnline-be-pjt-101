@@ -21,22 +21,23 @@ from authemail.models import send_multi_format_email
 # Create your views here.
 
 class Signup(APIView):
-    permission_classes = (AllowAny,)
-    serializer_class = UserSerializer
+	permission_classes = (AllowAny,)
+	serializer_class = UserSerializer
 
-    def post(self, request, format=None):
-        serializer = self.serializer_class(data=request.data)
+	def post(self, request, format=None):
+		serializer = self.serializer_class(data=request.data)
 
-        if serializer.is_valid():
-            username = serializer.data['username']
-            email = serializer.data['email']
-            password = serializer.data['password']
-            AccountType = serializer.data['AccountType']
+		if serializer.is_valid():
+			cool_name = serializer.data['username']
+			email = serializer.data['email']
+			password = serializer.data['password']
+			AccountType = serializer.data['AccountType']
 
-            must_validate_email = getattr(settings, "AUTH_EMAIL_VERIFICATION", True)
+			must_validate_email = getattr(settings, "AUTH_EMAIL_VERIFICATION", True)
 
-            user = get_user_model().objects.create_user(email=email)
+			user = get_user_model().objects.create_user(email=email)
 
+<<<<<<< HEAD
             user.set_password(password)
             user.username = username
             user.AccountType = AccountType
@@ -56,8 +57,35 @@ class Signup(APIView):
             content = {'email': email, 'username': username,
                        ' AccountType': AccountType}
             return Response(content, status=status.HTTP_201_CREATED)
+=======
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+			user.set_password(password)
+			user.cool_name =cool_name
+			user.AccountType =AccountType
+			if not must_validate_email:
+				user.is_verified = True
+				send_multi_format_email('welcome_email',
+										{'email': user.email, },
+										target_email=user.email)
+			user.save()
+
+			
+			if must_validate_email:
+				# Create and associate signup code
+				ipaddr = self.request.META.get('REMOTE_ADDR', '0.0.0.0')
+				signup_code = SignupCode.objects.create_signup_code(user, ipaddr)
+				signup_code.send_signup_email()
+
+			content = {'email': email, 'cool_name': cool_name,
+					   ' AccountType':  AccountType}
+			return Response(content, status=status.HTTP_201_CREATED)
+
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+>>>>>>> 5fae535ab9faf9a9b98ef1f242e69896ef63b07c
+
 
 
 class ListCategory(generics.ListCreateAPIView):

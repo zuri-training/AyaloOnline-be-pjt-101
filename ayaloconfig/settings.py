@@ -152,7 +152,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-user: 'ayaloapp'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -164,11 +163,12 @@ AUTH_USER_MODEL = 'ayaloapp.MyUser'
 EMAIL_FROM = config('EMAIL_ADDRESS')
 EMAIL_BCC=config('EMAIL_ADDRESS')
 
-EMAIL_HOST = config('EMAIL_HOST') 
-EMAIL_PORT= config('PORT', cast=int) 
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = config('HOST_USER')
 EMAIL_HOST_PASSWORD = config('PASSWORD')
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'

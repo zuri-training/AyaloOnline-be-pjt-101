@@ -42,8 +42,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     "authemail",
     "ayaloapp",
-    'drf_yasg',
-    
+    "productlisting_api",
+    # "google_auth_api",
+    # "gooleapiclient",
+    # "rest_framework_simplejwt",
+    'drf_yasg',    
     'phone_verify'
 
 
@@ -101,7 +104,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ayaloconfig.wsgi.application'
 
-
+SWAGGER_SETTINGS={
+    'JSON_EDITOR': True
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

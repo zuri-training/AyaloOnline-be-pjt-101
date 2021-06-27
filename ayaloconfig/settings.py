@@ -42,8 +42,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     "authemail",
     "ayaloapp",
-    'drf_yasg',
-    
+    "productlisting_api",
+    # "google_auth_api",
+    # "gooleapiclient",
+    # "rest_framework_simplejwt",
+    'drf_yasg',    
     'phone_verify'
 
 
@@ -101,7 +104,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ayaloconfig.wsgi.application'
 
-
+SWAGGER_SETTINGS={
+    'JSON_EDITOR': True
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -163,11 +168,12 @@ AUTH_USER_MODEL = 'ayaloapp.MyUser'
 EMAIL_FROM = config('EMAIL_ADDRESS')
 EMAIL_BCC=config('EMAIL_ADDRESS')
 
-EMAIL_HOST = config('EMAIL_HOST') 
-EMAIL_PORT= config('PORT') 
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = config('HOST_USER')
 EMAIL_HOST_PASSWORD = config('PASSWORD')
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'

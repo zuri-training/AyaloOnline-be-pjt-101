@@ -5,10 +5,10 @@ This API handles all the backend details for the AyaloOnline Zuri Team 101 proje
 ## About AyaloOnline
 Some of the technologies we use to build our software:
 
-* Python
-* Django
-* JavaScript
-* React
+- Python
+- Django
+- JavaScript
+- React
 
 ## Description
 ** AyaloOnline Backend API ** is the foundation for our other AyaloOnline applications. The application is a REST API written in Python

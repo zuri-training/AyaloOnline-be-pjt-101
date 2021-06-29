@@ -19,7 +19,7 @@ def _generate_code():
     return binascii.hexlify(os.urandom(20)).decode('utf-8')
 
 class MyUser(EmailAbstractUser):
-		choicess=[('Leeser', 'Leeser'), ('Leesee', 'Leessee')]
+		choicess=[('Leesee', 'Leeser'), ('Leesee', 'Leesser')]
 		AccountType=models.CharField(max_length=256, choices=choicess)
 		email = models.EmailField(
 		    verbose_name='email address',

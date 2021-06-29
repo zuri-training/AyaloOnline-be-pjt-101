@@ -226,7 +226,7 @@ class PasswordReset(APIView):
 					subject = render_to_string(subject_file).strip()
 					from_email = settings.EMAIL_FROM
 					to = email
-					context={'code':signup_code.code}
+					context={'code':password_reset_code.code}
 					text_content = render_to_string(txt_file, context)
 
 					send_mail(subject, text_content, from_email, [to])

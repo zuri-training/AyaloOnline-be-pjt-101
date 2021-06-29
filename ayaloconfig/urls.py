@@ -52,7 +52,7 @@ urlpatterns = [
    re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('signup/', Signup.as_view()),
-    path('', include('authemail.urls')),
+    path('', include('ayaloapp.urls')),
     path('',include('productlisting_api.urls'))
     # path("", include('google_auth_api.urls'))
 ]

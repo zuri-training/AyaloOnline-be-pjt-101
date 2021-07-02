@@ -3,7 +3,7 @@ import os
 from django.db import models
 from authemail.models import EmailUserManager
 from authemail.models import EmailAbstractUser
-from django.contrib.auth.validators	import UnicodeUsernameValidator	
+from django.contrib.auth.validators import UnicodeUsernameValidator
 # Create your models here.
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
@@ -29,10 +29,18 @@ class MyUser(EmailAbstractUser):
 		)
 		cool_name = models.CharField(
 		verbose_name='Username',
+
         max_length=150,
         validators=[UnicodeUsernameValidator]
    
     )
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['password', 'username']
+
+    objects = EmailUserManager()
+
+
 
 
 		# First_name=models.CharField(verbose_name='First Name')
@@ -40,10 +48,14 @@ class MyUser(EmailAbstractUser):
 		# gender_choices=[('F', 'Female'), ('M', 'Male')]
 		# Gender=models.CharField(max_length=2, choices=gender_choices)
 		# Phone_number=models.CharField()
+
+		# USERNAME_FIELD = 'email'
+		# REQUIRED_FIELDS = ['password', 'username']
+
+
 		USERNAME_FIELD = 'email'
 		
 
-		objects=EmailUserManager()
 
 		def UserGrouper(self):
 			if self.AccountType=='Leeser':

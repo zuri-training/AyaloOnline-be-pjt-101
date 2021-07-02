@@ -71,6 +71,7 @@ REST_FRAMEWORK = {
 		'rest_framework.authentication.TokenAuthentication',
 	)
 }
+TEMPLATE_DIR=os.path.join(BASE_DIR, "templates")
 
 
 MIDDLEWARE = [
@@ -89,7 +90,7 @@ ROOT_URLCONF = 'ayaloconfig.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,6 +102,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'ayaloconfig.wsgi.application'
 

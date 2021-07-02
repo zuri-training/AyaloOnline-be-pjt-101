@@ -62,7 +62,7 @@ urlpatterns = [
 >>>>>>> 5fae535ab9faf9a9b98ef1f242e69896ef63b07c
 =======
     path('signup/', Signup.as_view()),
-    path('', include('authemail.urls')),
+    path('', include('ayaloapp.urls')),
     path('',include('productlisting_api.urls'))
     # path("", include('google_auth_api.urls'))
 >>>>>>> 91dd32c46fc337f92001517e5da2bf5be7dbb913

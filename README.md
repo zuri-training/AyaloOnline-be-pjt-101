@@ -12,7 +12,6 @@ The platform does not own any equipment but will congregate individuals and comp
 - Python
 - Django
 
-
 ## Description
 AyaloOnline Backend API is the foundation for our other AyaloOnline applications. The application is a REST API written in Python
 

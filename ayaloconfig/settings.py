@@ -72,6 +72,7 @@ REST_FRAMEWORK = {
 		'rest_framework.authentication.TokenAuthentication',
 	)
 }
+TEMPLATE_DIR=os.path.join(BASE_DIR, "templates")
 
 CORS_ALLOW_ALL_ORIGINS=True
 
@@ -106,6 +107,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'ayaloconfig.wsgi.application'
 

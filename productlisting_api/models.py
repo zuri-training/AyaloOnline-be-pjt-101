@@ -1,5 +1,6 @@
 from django.db import models
-
+from ayaloapp.models import ModelLeesee
+from django.conf import settings
 
 
 class Category(models.Model):
@@ -12,20 +13,24 @@ class Category(models.Model):
         return self.title
 
 class Product(models.Model):
-    product_tag = models.CharField(max_length=150)
-    name = models.CharField(max_length=150)
-    brand_name = models.CharField(max_length=150)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    location = models.CharField(max_length=100)
+    Leesee=models.ForeignKey('ayaloapp.ModelLeesee', on_delete=models.CASCADE)
+    name = models.CharField(max_length=15, verbose_name='Name of product')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Category')
+    location = models.CharField(max_length=100, )
     quantity = models.IntegerField()
-    price = models.IntegerField()
-    picture = models.URLField()
+    price = models.IntegerField(verbose_name='Rental fee')
+    picture = models.ImageField('/media')
     description = models.TextField()
     status = models.BooleanField(default=True)
     date_created = models.DateField(auto_now_add=True)
+    
 
     class Meta:
         ordering = ['-date_created']
 
     def __str__(self):
-        return '{} {}'.format(self.product_tag, self.name)
+        return '{}'.format(self.name)
+
+class ProductBookmark(models.Model):
+    User=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    Product=models.ForeignKey(Product, on_delete=models.CASCADE)

@@ -1,0 +1,2 @@
+Verify your email address by clicking on this link:
+    {{ request.META.HTTP_HOST }}/signup/verify/?code={{ code }}

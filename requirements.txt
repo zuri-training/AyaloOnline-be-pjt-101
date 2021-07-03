@@ -8,6 +8,7 @@ coreschema==0.0.4
 Deprecated==1.2.12
 distlib==0.3.2
 Django==3.2.4
+django-cors-headers==3.7.0
 django-filter==2.4.0
 django-phone-verify==2.0.1
 django-phonenumber-field==5.2.0
@@ -32,6 +33,7 @@ MarkupSafe==2.0.1
 nexmo==2.5.2
 packaging==20.9
 phonenumbers==8.12.25
+Pillow==8.3.0
 protobuf==3.17.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.8

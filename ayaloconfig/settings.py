@@ -43,29 +43,29 @@ INSTALLED_APPS = [
     "authemail",
     "ayaloapp",
     "productlisting_api",
-    # "google_auth_api",
-    # "gooleapiclient",
-    # "rest_framework_simplejwt",
     'drf_yasg',    
-    'phone_verify'
+    'order_api'
 
 
 ]
 
-PHONE_VERIFICATION = {
-    "BACKEND": "phone_verify.backends.twilio.TwilioBackend",
-    "OPTIONS": {
-        "SID": "fake",
-        "SECRET": "fake",
-        "FROM": "+14755292729",
-        "SANDBOX_TOKEN": "123456",
-    },
-    "TOKEN_LENGTH": 6,
-    "MESSAGE": "Welcome to {app}! Please use security code {security_code} to proceed.",
-    "APP_NAME": "Phone Verify",
-    "SECURITY_CODE_EXPIRATION_TIME": 3600,  # In seconds only
-    "VERIFY_SECURITY_CODE_ONLY_ONCE": False,  # If False, then a security code can be used multiple times for verification
-}
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+
+# PHONE_VERIFICATION = {
+#     "BACKEND": "phone_verify.backends.twilio.TwilioBackend",
+#     "OPTIONS": {
+#         "SID": "fake",
+#         "SECRET": "fake",
+#         "FROM": "+14755292729",
+#         "SANDBOX_TOKEN": "123456",
+#     },
+#     "TOKEN_LENGTH": 6,
+#     "MESSAGE": "Welcome to {app}! Please use security code {security_code} to proceed.",
+#     "APP_NAME": "Phone Verify",
+#     "SECURITY_CODE_EXPIRATION_TIME": 3600,  # In seconds only
+#     "VERIFY_SECURITY_CODE_ONLY_ONCE": False,  # If False, then a security code can be used multiple times for verification
+
 REST_FRAMEWORK = {
 	'DEFAULT_AUTHENTICATION_CLASSES': (
 		'rest_framework.authentication.TokenAuthentication',
@@ -86,10 +86,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ayaloconfig.urls'
 
+TEMPLATE_DIR=os.path.join(BASE_DIR, "templates")
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -166,14 +168,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'ayaloapp.MyUser'
 
 EMAIL_FROM = config('EMAIL_ADDRESS')
-EMAIL_BCC=config('EMAIL_ADDRESS')
+# EMAIL_BCC=config('EMAIL_ADDRESS')
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_PORT = 2525
 EMAIL_HOST_USER = config('HOST_USER')
 EMAIL_HOST_PASSWORD = config('PASSWORD')
-EMAIL_USE_TLS = True
+# EMAIL_USE_TLS = True
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+SID = config('Account_sid')
+SECRET = config('Auth_token')
+FROM = config('Phone_number')

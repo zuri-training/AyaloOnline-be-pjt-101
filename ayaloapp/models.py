@@ -20,55 +20,55 @@ AUTH_PROVIDERS = {'google': 'google'}
 
 
 class MyUser(EmailAbstractUser):
-		choicess=[('Leesee', 'Leesee'), ('Leeser', 'Leesser')]
-		AccountType=models.CharField(max_length=256, choices=choicess)
-		# auth_provider = models.CharField(
-  #       max_length=255, blank=True,
-  #       null=True, default=AUTH_PROVIDERS.get('email'))
-		email = models.EmailField(
-		    verbose_name='email address',
-		    max_length=255,
-		    unique=True
-	
-		)
-		cool_name = models.CharField(
-		verbose_name='Username',
+			choicess=[('Leesee', 'Leesee'), ('Leeser', 'Leesser')]
+			AccountType=models.CharField(max_length=256, choices=choicess)
+			# auth_provider = models.CharField(
+			#       max_length=255, blank=True,
+			#       null=True, default=AUTH_PROVIDERS.get('email'))
+			email = models.EmailField(
+			verbose_name='email address',
+			max_length=255,
+			unique=True
 
-        max_length=150,
-        validators=[UnicodeUsernameValidator]
-   
-    )
+			)
+			cool_name = models.CharField(
+			verbose_name='Username',
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['password', 'username']
+			max_length=150,
+			validators=[UnicodeUsernameValidator]
 
-    objects = EmailUserManager()
+			)
 
+			USERNAME_FIELD = 'email'
+			REQUIRED_FIELDS = ['password', 'username']
 
+			objects = EmailUserManager()
 
 
-		# First_name=models.CharField(max_length=255, verbose_name='First Name')
-		# Last_name=models.CharField(max_length=255, verbose_name='Last Name')
-		gender_choices=[('Female', 'Female'), ('Male', 'Male')]
-		Gender=models.CharField(max_length=255, choices=gender_choices)
-		Phone_number=models.CharField(max_length=255)
-		is_completely_verified = models.BooleanField(default=False)
-		USERNAME_FIELD = 'email'
-		
 
-		objects=EmailUserManager()
-		# def tokens(self):
-		# 	refresh = RefreshToken.for_user(self)
-		# 	return {
-		# 	'refresh': str(refresh),
-		# 	'access': str(refresh.access_token)}
-		# def UserGrouper(self):
-		# 	if self.AccountType=='Leeser':
-		# 		is_vendor=True
-		# 	elif self.AccountType=='Leesee':
-		# 		is_vendor=False
 
-		# 	return is_vendor
+			# First_name=models.CharField(max_length=255, verbose_name='First Name')
+			# Last_name=models.CharField(max_length=255, verbose_name='Last Name')
+			gender_choices=[('Female', 'Female'), ('Male', 'Male')]
+			Gender=models.CharField(max_length=255, choices=gender_choices)
+			Phone_number=models.CharField(max_length=255)
+			is_completely_verified = models.BooleanField(default=False)
+			USERNAME_FIELD = 'email'
+
+
+			objects=EmailUserManager()
+			# def tokens(self):
+			# 	refresh = RefreshToken.for_user(self)
+			# 	return {
+			# 	'refresh': str(refresh),
+			# 	'access': str(refresh.access_token)}
+			# def UserGrouper(self):
+			# 	if self.AccountType=='Leeser':
+			# 		is_vendor=True
+			# 	elif self.AccountType=='Leesee':
+			# 		is_vendor=False
+
+			# 	return is_vendor
 
 
 class ModelLeesee(models.Model):

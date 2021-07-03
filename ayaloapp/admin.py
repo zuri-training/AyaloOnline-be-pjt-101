@@ -9,7 +9,5 @@ class MyUserAdmin(admin.ModelAdmin):
 		'Gender')
 
 
-admin.site.register(Category)
-admin.site.register(Product)
 admin.site.unregister(get_user_model())
 admin.site.register(get_user_model(), MyUserAdmin)

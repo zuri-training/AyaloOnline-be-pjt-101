@@ -13,7 +13,7 @@ __pycache__/
 # C extensions
 *.so
 *.json
-
+*.html
 # Distribution / packaging
 .Python
 build/

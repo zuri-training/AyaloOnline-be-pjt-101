@@ -110,8 +110,8 @@ class Signup(APIView):
 
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-temp_user={}
-client=Client(settings.SID, settings.SECRET)
+# temp_user={}
+# client=Client(settings.SID, settings.SECRET)
 class CompleteProfileSerializerView(APIView):
 	permission_classes = (IsAuthenticated,)
 	serializer_class = CompleteProfileSerializer

@@ -180,7 +180,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = config('HOST_USER')
 EMAIL_HOST_PASSWORD = config('PASSWORD')
-# EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'

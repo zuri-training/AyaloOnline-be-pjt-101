@@ -22,9 +22,9 @@ AUTH_PROVIDERS = {'google': 'google'}
 class MyUser(EmailAbstractUser):
 			choicess=[('Leesee', 'Leesee'), ('Leeser', 'Leesser')]
 			AccountType=models.CharField(max_length=256, choices=choicess)
-			# auth_provider = models.CharField(
-			#       max_length=255, blank=True,
-			#       null=True, default=AUTH_PROVIDERS.get('email'))
+			auth_provider = models.CharField(
+			      max_length=255, blank=True,
+			      null=True, default=AUTH_PROVIDERS.get('email'))
 			email = models.EmailField(
 			verbose_name='email address',
 			max_length=255,
@@ -40,7 +40,7 @@ class MyUser(EmailAbstractUser):
 			)
 
 			USERNAME_FIELD = 'email'
-			REQUIRED_FIELDS = ['password', 'username']
+			REQUIRED_FIELDS = ['password', 'cool_name']
 
 			objects = EmailUserManager()
 
@@ -84,26 +84,26 @@ class ModelLeesee(models.Model):
 				return '{} , {} {}'.format(self.Business_name, self.Leesee.first_name, self.Leesee.last_name)
 
 
-def generate_OTP():
-	digits='0123456789'
-	OTP=''
-	for i in range(4):
-		OTP+=digits[math.floor(random.random()*10)]
-		return OTP
+# def generate_OTP():
+# 	digits='0123456789'
+# 	OTP=''
+# 	for i in range(4):
+# 		OTP+=digits[math.floor(random.random()*10)]
+# 		return OTP
 
-class TwilioTokenManager(models.Manager):
-	def create_token(self, phone_number):
-		Token=generate_OTP()
-		self.Token=Token
-		self.phone_number=phone_number
+# class TwilioTokenManager(models.Manager):
+# 	def create_token(self, phone_number):
+# 		Token=generate_OTP()
+# 		self.Token=Token
+# 		self.phone_number=phone_number
 
-		return self.Token
+# 		return self.Token
 
-class TwilioToken(models.Model):
-	Token=models.IntegerField()
-	Phone_number =models.CharField(max_length=150)
+# class TwilioToken(models.Model):
+# 	Token=models.IntegerField()
+# 	Phone_number =models.CharField(max_length=150)
 
-	objects=TwilioTokenManager()
+# 	objects=TwilioTokenManager()
 
 	# def verify_token(token, phone_number, user):
 	# 		Token_object=TwilioToken.objects.get(Phone_number=phone_number)

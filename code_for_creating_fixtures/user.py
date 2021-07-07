@@ -387,15 +387,15 @@ for item in apple:
 	item["fields"]["Gender"]="Female"
 	item["fields"]["Phone_number"]="+2348045634221"
 	item["fields"]["cool_name"]=item["fields"]["first_name"]+"123"
-	item["fields"]["is_completely_verified"]=true
-	item["fields"]["is_completely_verified"]=true
-	item["fields"]["is_verified"]=false
+	item["fields"]["is_verified"]=True
+	item["fields"]["is_completely_verified"]=True
+	item["fields"]["is_active"]=True
 
 
 	
 
 	
-with open('.\\django-codes\\other_code\\AyaloOnline-be-pjt-101\\fixtures\\MUser.json', 'a') as file:
+with open('C:\\Users\\Amaka\\Scripts\\django-codes\\other_code\\AyaloOnline-be-pjt-101\\fixtures\\MUser.json', 'a') as file:
 	file.write(json.dumps(apple))
 
 file.close()

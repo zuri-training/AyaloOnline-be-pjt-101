@@ -1,12 +1,12 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-# from ayaloapp.views import Signup, CompleteProfileSerializerView, ConfirmPhoneNumberView
+from ayaloapp.views import Signup, CompleteProfileSerializerView,ListLeesee, DetailLeesee
 
 from . import views
 
 
 urlpatterns = [
-    path('signup/', views.Signup.as_view(), name='authemail-signup'),
+    path('signup/', Signup.as_view(), name='authemail-signup'),
     path('signup/verify/', views.SignupVerify.as_view(),
          name='authemail-signup-verify'),
 
@@ -29,8 +29,9 @@ urlpatterns = [
          name='authemail-password-change'),
 
     path('users/me/', views.UserMe.as_view(), name='authemail-me'),
-    # path('complete/profile/', CompleteProfileSerializerView.as_view()),
-    # path('confirm/Phone_number', ConfirmPhoneNumberView.as_view())
+    path('complete/profile/', CompleteProfileSerializerView.as_view()),
+    path('Leesee/', ListLeesee.as_view(), name='Leesee'),
+    path('Leesee/<int:pk>/', DetailLeesee.as_view(), name='Leesee-detail')
 ]
 
 

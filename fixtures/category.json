@@ -1,0 +1,5 @@
+[{"model": "productlisting_api.category", "pk": 1, "fields":
+ {"title": "construction"}}, 
+ {"model": "productlisting_api.category", "pk": 2, "fields": {"title": "Media"}},
+  {"model": "productlisting_api.category", "pk": 3, "fields": {"title": "Agriculture"}},
+]

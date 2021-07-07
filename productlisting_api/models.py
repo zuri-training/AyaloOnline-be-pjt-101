@@ -14,7 +14,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     Leesee=models.ForeignKey('ayaloapp.ModelLeesee', on_delete=models.CASCADE)
-    name = models.CharField(max_length=15, verbose_name='Name of product')
+    name = models.CharField(max_length=255, verbose_name='Name of product')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Category')
     location = models.CharField(max_length=100, )
     quantity = models.IntegerField()

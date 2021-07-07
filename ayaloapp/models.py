@@ -78,7 +78,7 @@ class ModelLeesee(models.Model):
 			CAC=models.CharField(max_length=150)
 			choicess=[('BVN', 'BVN'), ('NIN', 'NIN')]
 			VerificationMethod=models.CharField(max_length=256, choices=choicess)
-			VerificationField=models.IntegerField()
+			VerificationField=models.BigIntegerField()
 
 			def __str__(self):
 				return '{} , {} {}'.format(self.Business_name, self.Leesee.first_name, self.Leesee.last_name)

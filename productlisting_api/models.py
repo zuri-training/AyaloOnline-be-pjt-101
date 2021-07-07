@@ -19,7 +19,7 @@ class Product(models.Model):
     location = models.TextField()
     quantity = models.IntegerField()
     price = models.IntegerField(verbose_name='Rental fee')
-    picture = models.ImageField('/media')
+    picture = models.ImageField( max_length=255)
     description = models.TextField()
     status = models.BooleanField(default=True)
     date_created = models.DateField(auto_now_add=True)

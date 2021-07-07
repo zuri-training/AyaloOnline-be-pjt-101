@@ -13,30 +13,28 @@ from barnum import gen_data
 import math
 import json
 choicess=['BVN', 'NIN']
-p=[i for i in range(40)]
 
 
+data=[]
 
-m=0
-p=[i for i in range(40)]
-for i in range(40):
-	m=m+1
-	if m == 2:
-		continue
-	item={"model": "ayaloapp.ModelLeesee", "pk": m, "fields": {}}
-	item["fields"]['Leesee']=p[m]
+p=[i for i in range(1, 39)]
+for i in p:
+
+	item={"model": "ayaloapp.ModelLeesee", "pk": i, "fields": {}}
+	item["fields"]['Leesee']=random.choice(p)
 	item["fields"]['Business_name']=gen_data.create_company_name()
 	address=""
 	for i in gen_data.create_city_state_zip():
 		address=address+i+","
-	item["fields"]['business_address']=address
+	item["fields"]['business_address']=address.strip(',')
 	item["fields"]['CAC']=gen_data.create_cc_number()[1][0]
 	item["fields"]['VerificationMethod']=random.choice(choicess)
 	item["fields"]['VerificationField']=gen_data.create_cc_number()[1][0]
+	data.append(item)
 
 
 
-	with open('.\\django-codes\\other_code\\AyaloOnline-be-pjt-101\\fixtures\\leesee.json', 'a') as file:
-		file.write(json.dumps(item))
+with open('C:\\Users\\Amaka\\Scripts\\django-codes\\other_code\\AyaloOnline-be-pjt-101\\fixtures\\leesee.json', 'a') as file:
+	file.write(json.dumps(data))
 
-	file.close()
+file.close()

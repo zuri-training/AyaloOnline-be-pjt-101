@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import  MyUser
 from phone_verify.serializers import PhoneSerializer
 from phonenumber_field.serializerfields import PhoneNumberField
-from .models import TwilioToken, ModelLeesee
+from .models import ModelLeesee
 
 class UserSerializer(serializers.Serializer):
 		choicess=[('Leeser', 'Leeser'), ('Leesee', 'Leessee')]
@@ -31,10 +31,6 @@ class CompleteProfileSerializer(serializers.Serializer):
 
 		
 
-class ValidatePhoneNumberSerializer(serializers.ModelSerializer):
-	class Meta:
-		model=TwilioToken
-		fields=('Phone_number',)
 
 class LeeseeSerializer(serializers.ModelSerializer):
 	class Meta:

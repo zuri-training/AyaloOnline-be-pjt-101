@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import  UserSerializer, CompleteProfileSerializer, ValidatePhoneNumberSerializer
+from .serializers import  UserSerializer, CompleteProfileSerializer
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from datetime import date
@@ -17,7 +17,7 @@ from twilio.rest import Client
 # from .models import SignupCode
 from authemail.models import SignupCode
 from rest_framework import generics
-from .models import TwilioToken, ModelLeesee
+from .models import ModelLeesee
 from .serializers import LeeseeSerializer
 from .permissions	import IsVerified
 
@@ -146,23 +146,23 @@ class CompleteProfileSerializerView(APIView):
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ConfirmPhoneNumberView(APIView):
-	permission_classes = (AllowAny,)
-	serializer_class =  ValidatePhoneNumberSerializer
-	def post(self, request, format=None):
-		user=request.user
-		Token_object=TwilioToken.objects.get(Phone_number=temp[phone_number])
-		serializer = self.serializer_class(data=request.data)
-		if serializer.is_valid():
-			token=serializer.data['Token']
-			if Token_object.Token==token:
-				for item in temp_user:
-					user.item = item
-					content[item]=item
-					del temp_user[item]
-				user.save
-				return Response(content, status=status.HTTP_201_CREATED)
-		return Response('Invalid token', status=status.HTTP_400_BAD_REQUEST)
+# class ConfirmPhoneNumberView(APIView):
+# 	permission_classes = (AllowAny,)
+# 	serializer_class =  ValidatePhoneNumberSerializer
+# 	def post(self, request, format=None):
+# 		user=request.user
+# 		Token_object=TwilioToken.objects.get(Phone_number=temp[phone_number])
+# 		serializer = self.serializer_class(data=request.data)
+# 		if serializer.is_valid():
+# 			token=serializer.data['Token']
+# 			if Token_object.Token==token:
+# 				for item in temp_user:
+# 					user.item = item
+# 					content[item]=item
+# 					del temp_user[item]
+# 				user.save
+# 				return Response(content, status=status.HTTP_201_CREATED)
+# 		return Response('Invalid token', status=status.HTTP_400_BAD_REQUEST)
 
 
 class ListLeesee(generics.ListCreateAPIView):

@@ -36,6 +36,7 @@ packaging==20.9
 phonenumbers==8.12.25
 Pillow==8.3.0
 protobuf==3.17.3
+psycopg2==2.9.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 PyJWT==2.1.0

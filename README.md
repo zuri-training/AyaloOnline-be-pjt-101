@@ -54,4 +54,7 @@ Features include:
 ## API DOCUMENTATION
 
 http://ayalo-auth-api.herokuapp.com/swagger/
+
+
+
 http://ayalo-auth-api.herokuapp.com/doc/

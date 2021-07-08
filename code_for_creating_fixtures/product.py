@@ -273,16 +273,16 @@ def price_generator():
 data_lis=[]
 address=""
 m=1
-les=[i for i in range(1, 15) if i !=2]
+les=[i for i in range(1, 15) ]
 for item in lis_constr:
   item['Leesee']=random.choice(les)
   for i in gen_data.create_city_state_zip()[1:]:
     address=address+i+","
-  item['location']=address
+  item['location']=address.strip(",")
   item['quantity']=random.choice([1,2,3,4,5,6])
   item['price']=price_generator()
   item['category']=1
-  item['status']=True
+  item['status']="True"
   item['date_created']=random.choice(["2021-07-05", "2021-07-03", "2021-07-01"])
   data={"model": "productlisting_api.Product", "pk": m, "fields": item}
   m=m+1
@@ -298,18 +298,18 @@ for item in lis_constr:
 
 
 address=""
-les=[i for i in range(1, 15) if i !=2]
+les=[i for i in range(1, 15)]
 m=1
 
 for item in lis_media:
   item['Leesee']=random.choice(les)
   for i in gen_data.create_city_state_zip()[1:]:
     address=address+i+","
-  item['location']=address
+  item['location']=address.strip(",")
   item['quantity']=random.choice([1,2,3,4,5,6])
   item['price']=price_generator()
   item['category']=2
-  item['status']=True
+  item['status']="True"
   item['date_created']=random.choice(["2021-07-02", "2021-07-03", "2021-07-12"])
   data={"model": "productlisting_api.Product", "pk": m, "fields": item}
   m =m+1
@@ -325,17 +325,17 @@ for item in lis_media:
 #   file.close()
 
 address=""
-les=[i for i in range(1, 15) if i !=2]
+les=[i for i in range(1, 15)]
 m =1
-for item in lis_media:
+for item in list(lis_agr):
   item['Leesee']=random.choice(les)
   for i in gen_data.create_city_state_zip()[1:]:
     address=address+i+","
-  item['location']=address
+  item['location']=address.strip(",")
   item['quantity']=random.choice([1,2,3,4,5,6])
   item['price']=price_generator()
   item['category']=3
-  item['status']=True
+  item['status']="True"
   item['date_created']=random.choice(["2021-09-02", "2021-01-03", "2021-07-19"])
   data={"model": "productlisting_api.Product", "pk": m, "fields": item}
   m=m+1
@@ -344,7 +344,7 @@ for item in lis_media:
 
 
 
-with open('.\\django-codes\\other_code\\AyaloOnline-be-pjt-101\\fixtures\\product.json', 'a') as file:
+with open('C:\\Users\\Amaka\\Scripts\\django-codes\\other_code\\AyaloOnline-be-pjt-101\\fixtures\\product.json', 'a') as file:
   file.write(json.dumps(data_lis))
 
 file.close()

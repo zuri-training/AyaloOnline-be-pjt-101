@@ -1,7 +1,7 @@
-false='false'
-true='true'
+false="False"
+true="True"
 
-null='null'
+null="null"
 
 
 apple=[{"model": "ayaloapp.myuser", 
@@ -377,7 +377,7 @@ apple=[{"model": "ayaloapp.myuser",
 import names
 
 import json
-n=3
+n=1
 for item in apple:
 	item["fields"]["first_name"]=names.get_first_name()
 	item["fields"]["last_name"]=names.get_last_name()
@@ -387,9 +387,9 @@ for item in apple:
 	item["fields"]["Gender"]="Female"
 	item["fields"]["Phone_number"]="+2348045634221"
 	item["fields"]["cool_name"]=item["fields"]["first_name"]+"123"
-	item["fields"]["is_verified"]=True
-	item["fields"]["is_completely_verified"]=True
-	item["fields"]["is_active"]=True
+	item["fields"]["is_verified"]="True"
+	item["fields"]["is_completely_verified"]="True"
+	item["fields"]["is_active"]="True"
 
 
 	

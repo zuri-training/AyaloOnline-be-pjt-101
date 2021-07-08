@@ -14,12 +14,12 @@ class Category(models.Model):
 
 class Product(models.Model):
     Leesee=models.ForeignKey('ayaloapp.ModelLeesee', on_delete=models.CASCADE)
-    name = models.CharField(max_length=15, verbose_name='Name of product')
+    name = models.CharField(max_length=255, verbose_name='Name of product')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Category')
-    location = models.CharField(max_length=100, )
+    location = models.TextField()
     quantity = models.IntegerField()
     price = models.IntegerField(verbose_name='Rental fee')
-    picture = models.ImageField('/media')
+    picture = models.ImageField( max_length=255)
     description = models.TextField()
     status = models.BooleanField(default=True)
     date_created = models.DateField(auto_now_add=True)

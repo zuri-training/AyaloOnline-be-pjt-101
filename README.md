@@ -7,18 +7,28 @@ This API handles all the backend details for the AyaloOnline Zuri Team 101 proje
 All you need is the "Àyálo Online" platform, from concept to market the platform will give you the space to execute as though you had a full efficient space, studio, workshop etc.
 The platform does not own any equipment but will congregate individuals and companies that own the equipment and help you start and finish the project in time and budget.
 
+## Project Documentation
+The documentation for the entire project can be found [here](https://docs.google.com/document/d/1zMxpgaBGehSatTkSlHvNvgHAcBGGvjpWx-zKIvoQ4mM/edit?usp=sharing)
+
 
 ## Built with
-- Python
-- Django
+- Django (Python framework for backend development)
+- Swagger for documentation
 
 ## Description
 AyaloOnline Backend API is the foundation for our other AyaloOnline applications. The application is a REST API written in Python
 
-Some of the features included in this app:
-
-- REST API
-- Authentication via JWT or basic-auth
+Features include:
+- Authentication via email
+- Email signup verification
+- Password reset
+- Password Change
+- Product listing endpoint
+- Category of products endpoint
+- Endpoint for recently added products
+- Endpoint for recently added products
+- Order endpoints
+- Wishlist/Bookmark feature
 
 
 ## Dev Contribution Guide
@@ -40,9 +50,8 @@ Some of the features included in this app:
 
 9. Do not merge your pull request yourself. Wait for review and merging.
 
-## Installation
 
+## API DOCUMENTATION
 
-
-## User Guide
-In progress.
+http://ayalo-auth-api.herokuapp.com/swagger/
+http://ayalo-auth-api.herokuapp.com/doc/

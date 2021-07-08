@@ -1,7 +1,5 @@
 # ÀyáloOnline-be-pjt-101 Backend API
 
-![ayalo2](https://user-images.githubusercontent.com/59079323/124951802-98ef1700-e00b-11eb-8c52-5625ac47ad88.jpg)
-![ayalo3](https://user-images.githubusercontent.com/59079323/124951944-b9b76c80-e00b-11eb-93bf-bd475a3b23d0.jpg)
 ![ayalo](https://user-images.githubusercontent.com/59079323/124952078-d94e9500-e00b-11eb-84ec-76a5fcdbc389.jpg)
 
 

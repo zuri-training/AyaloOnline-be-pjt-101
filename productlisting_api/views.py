@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from .models import Category, Product
-from .serializers import CategorySerializer, ProductSerializer
+from .serializers import CategorySerializer, ProductSerializer, ProductSerializerS
 from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework	import filters
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.core import serializers
 
 
 
@@ -20,13 +21,23 @@ from rest_framework.response import Response
 
 
 class ListProduct(generics.ListCreateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+		queryset = Product.objects.all()
+		serializer_class = ProductSerializer
+		myserializer=ProductSerializerS
+
+		def get(self, request, format=None):
+			serializer = self.myserializer(self.get_queryset(), many=True)
+			return Response(serializer.data)
 
 
 class DetailProduct(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+			queryset = Product.objects.all()
+			serializer_class = ProductSerializer
+
+
+
+
+
 
 # class ProductFilter(generics.ListAPIView):
 # 	queryset=Product.objects.all()

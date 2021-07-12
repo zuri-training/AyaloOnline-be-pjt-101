@@ -19,3 +19,9 @@ class ProductSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return Product.objects.create(**validated_data)
 
+class ProductSerializerS(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields="__all__"
+
+

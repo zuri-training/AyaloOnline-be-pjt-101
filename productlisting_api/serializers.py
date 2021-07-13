@@ -14,8 +14,14 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        exclude=['status']
+        exclude=['status', 'picture']
 
     def create(self, validated_data):
         return Product.objects.create(**validated_data)
+
+class ProductSerializerS(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields="__all__"
+
 

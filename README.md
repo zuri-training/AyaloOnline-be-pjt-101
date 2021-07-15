@@ -62,3 +62,30 @@ http://ayalo-auth-api.herokuapp.com/swagger/
 
 
 http://ayalo-auth-api.herokuapp.com/doc/
+
+## TEAM MEMBERS AND INDIVIDUAL CONTRIBUTIONS
+
+GitHub username: MickeyLannister17,
+Slack username: Lannister
+
+- I setup the repo and installed some of its dependencies. 
+- I also created the product listing API.
+
+https://www.linkedin.com/in/clefcodex/,
+https://twitter.com/clefcodex,
+Slack username: clefcodex,
+GitHub username: clefcodex
+
+- Created the README
+- The API end point for recently added
+- The API end point for Best offer 
+- Web scrapping scripts to populate the Agricultural sector of the database.
+
+https://www.linkedin.com/in/maureen-ononiwu-49b3b212a,
+Github- @Chinwendu20,
+Slack- @Babe_Chinwendum
+
+- Team leader of the backend sub team of the project. I was involved in every aspect of the project. Coordinated member's participation and came up with task breakdown and ideas.
+- Wrote code for email authentication, order and search features in the api. 
+- Deployed api and integrated codes from developers in the team. Fixed commit and deployment issues. 
+- Wrote code for creating fixtures.

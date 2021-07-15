@@ -89,3 +89,9 @@ Slack- @Babe_Chinwendum
 - Wrote code for email authentication, order and search features in the api. 
 - Deployed api and integrated codes from developers in the team. Fixed commit and deployment issues. 
 - Wrote code for creating fixtures.
+
+http://linkedin.com/in/goodnews-samuel-03074a168
+Github: GoodnewsPerfect
+Slack: GoodnewsPerfect
+
+- I updated the readme file with details of team members and their individual contributions.
